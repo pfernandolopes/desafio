@@ -1,3 +1,6 @@
 #!/bin/bash
-# Teste para confirmar que o script foi executado.
-echo "Olá mundo!!"
+#bloco de instalação de requisitos para o abiente
+apt update
+apt install pyton3
+apt install git
+apt update
