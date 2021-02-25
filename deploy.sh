@@ -6,7 +6,10 @@ apt install python3-pip -y
 apt install git -y
 apt update
 
-#Criador diretorio e feito download do app
+# Interrompe a aplicaçao caso esteja em uso
+pkill -9 -f gunicorn
+
+#Criando diretorio / Download do app
 mkdir app
 cd app
 git clone https://github.com/gohackfelipe/desafio.git
