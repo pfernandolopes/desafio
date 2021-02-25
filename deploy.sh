@@ -12,3 +12,9 @@ cd app
 git clone https://github.com/gohackfelipe/desafio.git
 cd desafio
 cd app
+
+#Instala requisitos do app
+pip3 install -r ./requirements.txt
+
+# Start da app em modo não interativo
+gunicorn --log-level debug api:app --daemon

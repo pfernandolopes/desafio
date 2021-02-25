@@ -1,3 +1,7 @@
+### v4
+    Instala os requisitos do app
+    Inicializa o app em modo nao interativo.
+
 ### v3
     Adicionado auto continue na instalação
     Adicionado bloco de deploy do app
