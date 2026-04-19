@@ -4,39 +4,66 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sudoku</title>
+
 <style>
+:root {
+  --bg: #f2f2f2;
+  --cell: #ffffff;
+  --text: #000;
+  --accent: #007aff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;
+    --cell: #1e1e1e;
+    --text: #fff;
+    --accent: #0a84ff;
+  }
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background:#f2f2f2;
+  font-family: -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
   text-align:center;
 }
-h1 { font-weight:300; }
+
+h1 {
+  font-weight:300;
+}
 
 .controls button {
   margin:5px;
   padding:10px 15px;
   border:none;
-  border-radius:10px;
-  background:#ddd;
+  border-radius:12px;
+  background:#ccc;
+  color:var(--accent);
 }
 
 .grid {
   display:grid;
   grid-template-columns: repeat(9, 1fr);
-  gap:2px;
-  max-width:350px;
+  gap:4px;
+  max-width:360px;
   margin:20px auto;
 }
 
 .cell {
-  width:100%;
+  background: var(--cell);
+  border-radius:10px;
   aspect-ratio:1;
-  background:#fff;
-  font-size:20px;
   display:flex;
   align-items:center;
   justify-content:center;
-  border-radius:6px;
+  border:1px solid rgba(0,0,0,0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .cell {
+    border:1px solid rgba(255,255,255,0.1);
+  }
 }
 
 .cell input {
@@ -46,22 +73,21 @@ h1 { font-weight:300; }
   text-align:center;
   font-size:18px;
   background:transparent;
-}
-
-.footer {
-  margin-top:15px;
+  color:var(--text);
 }
 
 .numbers button {
   margin:3px;
   padding:12px;
   border:none;
-  border-radius:8px;
-  background:#ddd;
-  width:35px;
+  border-radius:10px;
+  background:#ccc;
+  color:var(--accent);
+  width:36px;
 }
 </style>
 </head>
+
 <body>
 
 <h1>Sudoku</h1>
@@ -74,18 +100,16 @@ h1 { font-weight:300; }
 
 <div id="grid" class="grid"></div>
 
-<div class="footer">
-  <div class="numbers">
-    <button onclick="setNum(1)">1</button>
-    <button onclick="setNum(2)">2</button>
-    <button onclick="setNum(3)">3</button>
-    <button onclick="setNum(4)">4</button>
-    <button onclick="setNum(5)">5</button>
-    <button onclick="setNum(6)">6</button>
-    <button onclick="setNum(7)">7</button>
-    <button onclick="setNum(8)">8</button>
-    <button onclick="setNum(9)">9</button>
-  </div>
+<div class="numbers">
+  <button onclick="setNum(1)">1</button>
+  <button onclick="setNum(2)">2</button>
+  <button onclick="setNum(3)">3</button>
+  <button onclick="setNum(4)">4</button>
+  <button onclick="setNum(5)">5</button>
+  <button onclick="setNum(6)">6</button>
+  <button onclick="setNum(7)">7</button>
+  <button onclick="setNum(8)">8</button>
+  <button onclick="setNum(9)">9</button>
 </div>
 
 <script>
